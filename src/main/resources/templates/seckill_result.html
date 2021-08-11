@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html lang="zh-Hans" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <html>
 
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=9; IE=8; IE=7; IE=EDGE">
     <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7"/>
-    <title>秒杀活动发布</title>
+    <title>秒杀结果页</title>
     <link rel="stylesheet" type="text/css" href="/css/all.css"/>
     <link rel="stylesheet" type="text/css" href="/css/pages-getOrderInfo.css"/>
 </head>
@@ -24,7 +24,8 @@
                     <ul class="fl">
                         <li class="f-item"></li>
                         <li class="f-item">请<a href="login.html" target="_blank">登录</a>　<span><a href="register.html"
-                                                                                                 target="_blank">免费注册</a></span></li>
+                                                                                                 target="_blank">免费注册</a></span>
+                        </li>
                     </ul>
                     <div class="fr typelist">
                         <ul class="types">
@@ -68,49 +69,38 @@
     </div>
 </div>
 
+
 <div class="cart py-container" id="cart">
     <!--主内容-->
     <div class="checkout py-container">
         <div class="checkout-tit">
-            <h4 class="tit-txt">新增秒杀活动信息</h4>
+            <h4 class="tit-txt">秒杀结果</h4>
         </div>
         <div class="checkout-steps">
             <div class="hr"></div>
+            <!--支付和送货-->
             <div class="payshipInfo">
                 <div class="hr"></div>
                 <div class="step-cont">
                     <ul class="send-detail">
-                        <style>
-                            .dialog-card {
-                                display: flex;
-                                flex-direction: column;
-                                justify-content: center;
-                                align-items: center;
-                            }
-
-                            .dialog-card > p {
-                                display: flex;
-                                flex-direction: row;
-                                min-width: 10rem;
-                            }
-
-                            .dialog-card > p > span {
-                                flex-grow: 1;
-                                text-align: center;
-                            }
-                        </style>
-                        <div class="dialog-card">
-                            <h1>秒杀活动添加成功</h1>
-                            <p>活动名称：<span th:text="${flashaleActivity.name}"></span></p>
-                            <p>商品原价：<span th:text="${flashaleActivity.oldPrice}"></span></p>
-                            <p>活动价格：<span th:text="${flashaleActivity.flashalePrice}"></span></p>
-                            <p>商品数量：<span th:text="${flashaleActivity.availableStock}"></span></p>
-                        </div>
+                        <li>
+                            <div class="sendGoods">
+                                <em th:text="${resultInfo}"></em>
+                            </div>
+                        </li>
+                        <li></li>
+                        <li></li>
                     </ul>
                 </div>
                 <div class="hr"></div>
             </div>
         </div>
+    </div>
+
+
+    <div class="submit">
+        <a class="sui-btn btn-danger btn-xlarge" th:href="@{'/flashale/orderQuery/'+ ${orderNo}}"
+           target='_blank'>查看订单信息</a>
     </div>
 </div>
 <!-- 底部栏位 -->
@@ -231,5 +221,4 @@
 <script src="/js/vue.js"></script>
 <script src="/js/axios.js"></script>
 </body>
-
 </html>

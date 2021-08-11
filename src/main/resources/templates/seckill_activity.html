@@ -147,17 +147,17 @@
     <!--秒杀活动列表列表-->
     <div class="goods-list" id="app">
         <ul class="seckill" id="seckill">
-            <tr th:each="seckillActivity : ${seckillActivities}">
+            <tr th:each="flashaleActivity : ${flashaleActivities}">
                 <li class="seckill-item">
                     <div class="pic">
                         <img src="img/_/list.jpg" alt=''>
                     </div>
                     <div class="intro">
-                        <span th:text="${seckillActivity.name}">活动名称</span>
+                        <span th:text="${flashaleActivity.name}">活动名称</span>
                     </div>
                     <div class='price'>
-                        <b class='sec-price' th:text="'￥'+${seckillActivity.seckillPrice}"></b>
-                        <b class='ever-price' th:text="'￥'+${seckillActivity.oldPrice}"></b>
+                        <b class='sec-price' th:text="'￥'+${flashaleActivity.flashalePrice}"></b>
+                        <b class='ever-price' th:text="'￥'+${flashaleActivity.oldPrice}"></b>
                     </div>
                     <div class='num'>
                         <div>已售999</div>
@@ -170,7 +170,7 @@
                             <b class='owned'>999</b>件
                         </div>
                     </div>
-                    <a class='sui-btn btn-block btn-buy' th:href="@{'/item/'+${seckillActivity.id}}" target='_blank'>立即抢购</a>
+                    <a class='sui-btn btn-block btn-buy' th:href="@{'/item/'+${flashaleActivity.id}}" target='_blank'>立即抢购</a>
                 </li>
             </tr>
         </ul>
